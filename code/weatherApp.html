@@ -1,0 +1,175 @@
+<!doctype HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Weather App</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="weather.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+</head>
+
+<body>
+<main>
+	<div id="topBox">
+		<div id = "dateBox" >
+			<p id = time>Today 2:15pm</p>
+			<p id = date>April 21, 2017</p>
+		</div>
+		<div id = "searchBox">
+			<input id="zipBox" type="text" placeholder="enter zip">
+			<button id ="zipButton" onclick="getNewPlace()">submit</button>
+			<button id ="plusButton" onclick="getNewPlace()" class= "slideButton">
+				<img src="../WeatherApp%203/plus.png" alt="plus" class = "arrowIcon">
+			</button>
+		</div>
+	</div>
+
+	<div id ="locationBox">
+		<p id = "location">Davis, CA</p>
+	</div>
+
+	<div id="midBox">
+		<div id = "left">
+			<img src="../WeatherApp%203/part-sun.png" alt="Partially Sunny" class="icon">
+		</div>
+		<div id = "mid">
+			<p id = "temp">76&#xb0;<span>F</span></p>
+			<p id = "condition">partly sunny</p>
+		</div>
+		<div id = "right">
+			<div class = "first-line">
+				<img src="../WeatherApp%203/drop.png" alt="Drop" class="icon">
+				<p id = "humidity">43%</p>
+			</div>
+			<div class = "second-line">
+				<img src="../WeatherApp%203/wind.png" alt="Wind" class="icon">
+				<p id = "wind">3mph</p>
+			</div>
+		</div>
+	</div>
+
+	<div id="weatherBox">
+		<!-- <p id="forecast">forecast</p> -->
+		<div class="stepper">
+			<div id = "one" class = "forecast">
+				<p class = "day">Fri</p>
+				<div></div>
+				<p class = "condition">sunny</p>
+				<div class = "temp">
+					<p class = "high">79&#xb0;</p>
+					<p class = "low">49&#xb0;</p>
+				</div>
+			</div>
+			<div id = "two" class = "forecast">
+				<p class = "day">Sat</p>
+				<div></div>
+				<p class = "condition">sunny</p>
+				<div class = "temp">
+					<p class = "high">73&#xb0;</p>
+					<p class = "low">50&#xb0;</p>
+				</div>
+			</div>
+			<div id = "three" class = "forecast">
+				<p class = "day">Sat</p>
+				<div></div>
+				<p class = "condition">sunny</p>
+				<div class = "temp">
+					<p class = "high">73&#xb0;</p>
+					<p class = "low">50&#xb0;</p>
+				</div>
+			</div>
+			<div id = "four" class = "forecast">
+				<p class = "day">Sat</p>
+				<div></div>
+				<p class = "condition">sunny</p>
+				<div class = "temp">
+					<p class = "high">73&#xb0;</p>
+					<p class = "low">50&#xb0;</p>
+				</div>
+			</div>
+			<div id = "five" class = "forecast">
+				<p class = "day">Sat</p>
+				<div></div>
+				<p class = "condition">sunny</p>
+				<div class = "temp">
+					<p class = "high">73&#xb0;</p>
+					<p class = "low">50&#xb0;</p>
+				</div>
+			</div>
+			<div id = "six" class = "forecast">
+				<p class = "day">Sat</p>
+				<div></div>
+				<p class = "condition">sunny</p>
+				<div class = "temp">
+					<p class = "high">73&#xb0;</p>
+					<p class = "low">50&#xb0;</p>
+				</div>
+			</div>
+			<div id = "seven" class = "forecast">
+				<p class = "day">Sat</p>
+				<div></div>
+				<p class = "condition">sunny</p>
+				<div class = "temp">
+					<p class = "high">73&#xb0;</p>
+					<p class = "low">50&#xb0;</p>
+				</div>
+			</div>
+			<div id = "eight" class = "forecast">
+				<p class = "day">Sat</p>
+				<div></div>
+				<p class = "condition">sunny</p>
+				<div class = "temp">
+					<p class = "high">73&#xb0;</p>
+					<p class = "low">50&#xb0;</p>
+				</div>
+			</div>
+			<div id = "nine" class = "forecast">
+				<p class = "day">Sat</p>
+				<div></div>
+				<p class = "condition">sunny</p>
+				<div class = "temp">
+					<p class = "high">73&#xb0;</p>
+					<p class = "low">50&#xb0;</p>
+				</div>
+			</div>
+			<div id = "ten" class = "forecast">
+				<p class = "day">Sat</p>
+				<div></div>
+				<p class = "condition">sunny</p>
+				<div class = "temp">
+					<p class = "high">73&#xb0;</p>
+					<p class = "low">50&#xb0;</p>
+				</div>
+			</div>
+		</div> <!-- end stepper-->
+
+		<div id=buttonBar>
+			<div id=leftButtonBox>
+				<button id ="leftButton" onclick="prevFC()" class = "slideButton">
+					<img src="../WeatherApp%203/arrow-left.png" alt="Left" class = "arrowIcon">
+					&nbsp;previous forecasts
+				</button>
+			</div>
+			<div id=rightButtonBox>
+				<button id ="rightButton" onclick="nextFC()" class = "slideButton">
+					more forecasts&nbsp;
+					<img src="../WeatherApp%203/arrow-right.png" alt="Right" class = "arrowIcon">
+				</button>
+			</div>
+		</div>
+	</div>
+
+</main>
+<!-- contains callback function that is called when weather gets here from server -->
+<script src="weather.js"> </script>
+
+<!-- asks server to send weather -->
+<script src="https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text='davis,%20ca')&format=json&callback=callbackFunction"></script>
+
+	<div id = "yahoo">
+		<img src="https://poweredby.yahoo.com/white.png" alt="Yahoo">
+	</div>
+
+</body>
+</html>
